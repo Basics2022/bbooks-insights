@@ -65,11 +65,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch/human-perception-hearing';</script>
     <link rel="shortcut icon" href="../_static/favicon.svg"/>
     <link rel="index" title="Indice" href="../genindex.html" />
     <link rel="search" title="Cerca" href="../search.html" />
-    <link rel="prev" title="Sensi - Vista" href="human-perception-vision.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="it"/>
   </head>
@@ -163,11 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="human-perception-vision.html">Sensi - Vista</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sensi - Udito</a></li>
-</ul>
-
+        
     </div>
 </nav></div>
     </div>
@@ -386,7 +383,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -402,6 +401,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenuti </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Sensi - Udito</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#regole-di-somma-e-differenza-armoniche">Regole di somma e differenza armoniche</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -413,6 +422,104 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="sensi-udito">
 <h1>Sensi - Udito<a class="headerlink" href="#sensi-udito" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># </span>
+<span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pythagorean integer scale</span>
+<span class="n">f0</span> <span class="o">=</span> <span class="mi">220</span>
+<span class="n">p_ratio</span> <span class="o">=</span> <span class="mf">3.</span><span class="o">/</span><span class="mf">2.</span>
+
+<span class="n">twelve</span><span class="p">,</span> <span class="n">n_octaves</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span>
+<span class="n">n_tones</span> <span class="o">=</span> <span class="n">n_octaves</span> <span class="o">*</span> <span class="n">twelve</span>
+
+<span class="n">f_pyth</span><span class="p">,</span> <span class="n">fv_pyth</span> <span class="o">=</span> <span class="n">f0</span><span class="p">,</span> <span class="p">[</span> <span class="n">f0</span> <span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_tones</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">f_pyth</span> <span class="o">=</span> <span class="n">p_ratio</span> <span class="o">*</span> <span class="n">f_pyth</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">f_pyth</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="o">*</span><span class="n">f0</span> <span class="p">):</span>
+        <span class="n">f_pyth</span> <span class="o">/=</span> <span class="mi">2</span>
+    <span class="n">fv_pyth</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">f_pyth</span> <span class="p">]</span>
+
+<span class="c1"># print(fv)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_octaves</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">twelve</span><span class="p">),</span> <span class="n">fv_pyth</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">twelve</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">twelve</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8e2d72515b85567dca11f529c15fc5b02ce57c0c998f97dbc37d166b273a9eb2.png" src="../_images/8e2d72515b85567dca11f529c15fc5b02ce57c0c998f97dbc37d166b273a9eb2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 12 equal temperament</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="mf">2.</span><span class="o">**</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">12.</span><span class="p">)</span>
+<span class="n">f0</span> <span class="o">=</span> <span class="mi">220</span>
+<span class="n">fv_t</span> <span class="o">=</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">delta</span><span class="o">**</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fv_t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[220.         233.08188076 246.94165063 261.6255653  277.18263098
+ 293.66476792 311.12698372 329.62755691 349.22823143 369.99442271
+ 391.99543598 415.30469758]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="regole-di-somma-e-differenza-armoniche">
+<h1>Regole di somma e differenza armoniche<a class="headerlink" href="#regole-di-somma-e-differenza-armoniche" title="Permalink to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[A(t) = a_1 \cos(\Omega_1 t) + a_2 \cos(\Omega_2 t + \phi)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  A(t) &amp; = a_1 \cos(\Omega_1 t) + a_2 \cos(\Omega_2 t + \phi) = \\
+       &amp; = \\
+\end{aligned}\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">om0</span> <span class="o">=</span> <span class="mf">1.</span>
+<span class="n">om1</span> <span class="o">=</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">om0</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="mf">25.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.</span>
+
+<span class="n">a0</span><span class="p">,</span> <span class="n">a1</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span>
+
+<span class="n">afun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">a0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">om0</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">om1</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">phi</span><span class="p">)</span>
+
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">.1</span>
+<span class="n">tv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">afun</span><span class="p">(</span><span class="n">tv</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  0.    0.1   0.2 ...  99.8  99.9 100. ]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8343030250&gt;]
+</pre></div>
+</div>
+<img alt="../_images/9f8901e5a8639ecf45e005da20fc3a5e120fe1b6c15de5b1ff58070dee398e47.png" src="../_images/9f8901e5a8639ecf45e005da20fc3a5e120fe1b6c15de5b1ff58070dee398e47.png" />
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -445,21 +552,28 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="human-perception-vision.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">precedente</p>
-        <p class="prev-next-title">Sensi - Vista</p>
-      </div>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenuti
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Sensi - Udito</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#regole-di-somma-e-differenza-armoniche">Regole di somma e differenza armoniche</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
