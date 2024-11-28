@@ -1,9 +1,17 @@
-# basics-book template
+(book:insights)=
+# basics-insights
 
-If you want ot start a new basics-book, it could be a good idea to start from this template.
+Questo bbook è pensato per raccogliere alcuni approfondimenti e spunti. 
 
-Please check out the Github repo of the project, [basics-book project](https://github.com/Basics2022).
-
-
-```{tableofcontents}
+```{dropdown} Percezione umana
+- Udito
+- Vista
+- ...
 ```
+
+<!--
+**Gravitazione e cenni di ingegneria aerospaziale.**
+- Problema dei 3 corpi, punti di Lagrange e telescopio Webb
+- Velocità di fuga e lanciatori multistadio
+-->
+

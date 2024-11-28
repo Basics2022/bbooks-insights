@@ -4,4 +4,8 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
+  - file: ch/animations
+  - file: ch/history-test
+# - file: ch/human-perception-vision
+# - file: ch/human-perception-hearing
+# - file: markdown
