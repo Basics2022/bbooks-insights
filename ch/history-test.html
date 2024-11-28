@@ -1,0 +1,956 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="it" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; basics - pillole - blog</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"f05ec54f1f2c455c8b498bd041bbeb69": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "cursor": "grab"}}, "6d652ab7c42c4cbc91172a669313e444": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "cursor": "move"}}, "63d0d96097774ac5b1443e161fcd0d26": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletTileLayerView", "attribution": "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors", "base": true, "bottom": true, "bounds": null, "detect_retina": false, "loading": false, "max_native_zoom": null, "max_zoom": 19, "min_native_zoom": null, "min_zoom": 1, "name": "OpenStreetMap.Mapnik", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "bounds", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms", "zoom_offset"], "pane": "", "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "subitems": [], "tile_size": 256, "tms": false, "url": "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png", "visible": true, "zoom_offset": 0}}, "334144f51673412a9f850e2f6c409a28": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "1f4fa9fce9a944ef9f44fd12f1bda4ca": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "cursor": "grab"}}, "7631dca7a0534522802018f5a2eeaf9a": {"model_name": "LeafletMapModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_dom_classes": [], "_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletMapView", "bottom": 0.0, "bounce_at_zoom_limits": true, "box_zoom": true, "center": [45.0, 10.0], "close_popup_on_click": true, "controls": ["IPY_MODEL_00214f7ad94341fbb265770bd4885228", "IPY_MODEL_8df62f06526d411ab9305a7028e7d139"], "crs": {"name": "EPSG3857", "custom": false}, "default_style": "IPY_MODEL_f05ec54f1f2c455c8b498bd041bbeb69", "double_click_zoom": true, "dragging": true, "dragging_style": "IPY_MODEL_6d652ab7c42c4cbc91172a669313e444", "east": 0.0, "fullscreen": false, "inertia": true, "inertia_deceleration": 3000, "inertia_max_speed": 1500, "interpolation": "bilinear", "keyboard": true, "keyboard_pan_offset": 80, "keyboard_zoom_offset": 1, "layers": ["IPY_MODEL_63d0d96097774ac5b1443e161fcd0d26"], "layout": "IPY_MODEL_334144f51673412a9f850e2f6c409a28", "left": 9007199254740991.0, "max_zoom": null, "min_zoom": null, "modisdate": "2024-11-27", "north": 0.0, "options": ["bounce_at_zoom_limits", "box_zoom", "center", "close_popup_on_click", "double_click_zoom", "dragging", "fullscreen", "inertia", "inertia_deceleration", "inertia_max_speed", "interpolation", "keyboard", "keyboard_pan_offset", "keyboard_zoom_offset", "max_zoom", "min_zoom", "prefer_canvas", "scroll_wheel_zoom", "tap", "tap_tolerance", "touch_zoom", "world_copy_jump", "zoom", "zoom_animation_threshold", "zoom_delta", "zoom_snap"], "panes": {}, "prefer_canvas": false, "right": 0.0, "scroll_wheel_zoom": false, "south": 0.0, "style": "IPY_MODEL_1f4fa9fce9a944ef9f44fd12f1bda4ca", "tap": true, "tap_tolerance": 15, "top": 9007199254740991.0, "touch_zoom": true, "west": 0.0, "window_url": "", "world_copy_jump": false, "zoom": 5.0, "zoom_animation_threshold": 4, "zoom_delta": 1.0, "zoom_snap": 1.0}}, "00214f7ad94341fbb265770bd4885228": {"model_name": "LeafletZoomControlModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletZoomControlModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletZoomControlView", "options": ["position", "zoom_in_text", "zoom_in_title", "zoom_out_text", "zoom_out_title"], "position": "topleft", "zoom_in_text": "+", "zoom_in_title": "Zoom in", "zoom_out_text": "-", "zoom_out_title": "Zoom out"}}, "8df62f06526d411ab9305a7028e7d139": {"model_name": "LeafletAttributionControlModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletAttributionControlModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletAttributionControlView", "options": ["position", "prefix"], "position": "bottomright", "prefix": "ipyleaflet"}}, "2b565318c9b3498494597a8d30459a3a": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "cursor": "grab"}}, "da7051074df14ce5a7ff62f7ca230bc5": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "cursor": "move"}}, "cd3d162ea0214193a069667f92f22567": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletTileLayerView", "attribution": "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors", "base": true, "bottom": true, "bounds": null, "detect_retina": false, "loading": false, "max_native_zoom": null, "max_zoom": 19, "min_native_zoom": null, "min_zoom": 1, "name": "OpenStreetMap.Mapnik", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "bounds", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms", "zoom_offset"], "pane": "", "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "subitems": [], "tile_size": 256, "tms": false, "url": "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png", "visible": true, "zoom_offset": 0}}, "cf6e16db0bb040e2919c056c033412fc": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "06dfd24c880b477193e387ef82ba4bfd": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "cursor": "grab"}}, "13742f5db5e340bbba0bcb81c2f985a7": {"model_name": "LeafletMapModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_dom_classes": [], "_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletMapView", "bottom": 0.0, "bounce_at_zoom_limits": true, "box_zoom": true, "center": [45, 10], "close_popup_on_click": true, "controls": ["IPY_MODEL_db598546133d4867a557df99b864a4eb", "IPY_MODEL_7eb2e105f63643128a28cd1c547c7703", "IPY_MODEL_3e00573ff15c4acbbaa0fc7469eff464"], "crs": {"name": "EPSG3857", "custom": false}, "default_style": "IPY_MODEL_2b565318c9b3498494597a8d30459a3a", "double_click_zoom": true, "dragging": true, "dragging_style": "IPY_MODEL_da7051074df14ce5a7ff62f7ca230bc5", "east": 0.0, "fullscreen": false, "inertia": true, "inertia_deceleration": 3000, "inertia_max_speed": 1500, "interpolation": "bilinear", "keyboard": true, "keyboard_pan_offset": 80, "keyboard_zoom_offset": 1, "layers": ["IPY_MODEL_cd3d162ea0214193a069667f92f22567", "IPY_MODEL_51a2bdbfe8b3487b8eff60a277df5252", "IPY_MODEL_a47711d09f494fabb80ccc991996c90f"], "layout": "IPY_MODEL_cf6e16db0bb040e2919c056c033412fc", "left": 9007199254740991.0, "max_zoom": null, "min_zoom": null, "modisdate": "2024-11-27", "north": 0.0, "options": ["bounce_at_zoom_limits", "box_zoom", "center", "close_popup_on_click", "double_click_zoom", "dragging", "fullscreen", "inertia", "inertia_deceleration", "inertia_max_speed", "interpolation", "keyboard", "keyboard_pan_offset", "keyboard_zoom_offset", "max_zoom", "min_zoom", "prefer_canvas", "scroll_wheel_zoom", "tap", "tap_tolerance", "touch_zoom", "world_copy_jump", "zoom", "zoom_animation_threshold", "zoom_delta", "zoom_snap"], "panes": {}, "prefer_canvas": false, "right": 0.0, "scroll_wheel_zoom": false, "south": 0.0, "style": "IPY_MODEL_06dfd24c880b477193e387ef82ba4bfd", "tap": true, "tap_tolerance": 15, "top": 9007199254740991.0, "touch_zoom": true, "west": 0.0, "window_url": "", "world_copy_jump": false, "zoom": 5.0, "zoom_animation_threshold": 4, "zoom_delta": 1.0, "zoom_snap": 1.0}}, "db598546133d4867a557df99b864a4eb": {"model_name": "LeafletZoomControlModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletZoomControlModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletZoomControlView", "options": ["position", "zoom_in_text", "zoom_in_title", "zoom_out_text", "zoom_out_title"], "position": "topleft", "zoom_in_text": "+", "zoom_in_title": "Zoom in", "zoom_out_text": "-", "zoom_out_title": "Zoom out"}}, "7eb2e105f63643128a28cd1c547c7703": {"model_name": "LeafletAttributionControlModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletAttributionControlModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletAttributionControlView", "options": ["position", "prefix"], "position": "bottomright", "prefix": "ipyleaflet"}}, "8c176c57042c4c688aa01fddca91c894": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ddaad036ee6b409fa77bee34eeaac4d8": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "6c955761732b489981d9a922c85f7da8": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "Year:", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_8c176c57042c4c688aa01fddca91c894", "max": 1950, "min": 1800, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 10, "style": "IPY_MODEL_ddaad036ee6b409fa77bee34eeaac4d8", "value": 1800}}, "51a2bdbfe8b3487b8eff60a277df5252": {"model_name": "LeafletLayerGroupModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletLayerGroupModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletLayerGroupView", "base": false, "bottom": false, "layers": ["IPY_MODEL_afd7ad8a5a1e448b9e1b23584d21993c"], "name": "Italy", "options": [], "pane": "", "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "subitems": []}}, "a47711d09f494fabb80ccc991996c90f": {"model_name": "LeafletLayerGroupModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletLayerGroupModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletLayerGroupView", "base": false, "bottom": false, "layers": ["IPY_MODEL_6f514400388d4eebb195ef1b32dd52f6"], "name": "France", "options": [], "pane": "", "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "subitems": []}}, "afd7ad8a5a1e448b9e1b23584d21993c": {"model_name": "LeafletGeoJSONModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletGeoJSONModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletGeoJSONView", "base": false, "bottom": false, "data": {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[8.0, 46.0], [14.0, 46.0], [14.0, 40.0], [8.0, 40.0], [8.0, 46.0]]]}, "properties": {"country": "Italy", "year": 1800, "style": {"color": "green", "opacity": 0.6, "weight": 1.5}}}]}, "hover_style": {}, "layers": [], "name": "", "options": [], "pane": "", "point_style": {}, "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "style": {"color": "green", "opacity": 0.6, "weight": 1.5}, "subitems": [], "visible": true}}, "6f514400388d4eebb195ef1b32dd52f6": {"model_name": "LeafletGeoJSONModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletGeoJSONModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletGeoJSONView", "base": false, "bottom": false, "data": {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[2.0, 47.0], [7.0, 47.0], [7.0, 42.0], [2.0, 42.0], [2.0, 47.0]]]}, "properties": {"country": "France", "year": 1800, "style": {"color": "blue", "opacity": 0.6, "weight": 1.5}}}]}, "hover_style": {}, "layers": [], "name": "", "options": [], "pane": "", "point_style": {}, "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "style": {"color": "blue", "opacity": 0.6, "weight": 1.5}, "subitems": [], "visible": true}}, "3e00573ff15c4acbbaa0fc7469eff464": {"model_name": "LeafletWidgetControlModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletWidgetControlModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletWidgetControlView", "max_height": null, "max_width": null, "min_height": null, "min_width": null, "options": ["position", "transparent_bg"], "position": "topright", "transparent_bg": false, "widget": "IPY_MODEL_6c955761732b489981d9a922c85f7da8"}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/history-test';</script>
+    <link rel="shortcut icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Indice" href="../genindex.html" />
+    <link rel="search" title="Cerca" href="../search.html" />
+    <link rel="prev" title="Animazioni in un Jupyter book" href="animations.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="it"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="basics - pillole - blog - Home"/>
+    <script>document.write(`<img src="../_static/logo-dark.svg" class="logo__image only-dark" alt="basics - pillole - blog - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="animations.html">Animazioni in un Jupyter book</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Basics2022/bbooks-insights/blob/master/ch/history-test.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-insights" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repository di origine"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-insights/edit/master/ch/history-test.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-insights/issues/new?title=Issue%20on%20page%20%2Fch/history-test.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Apri un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Scarica questa pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ch/history-test.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Scarica il file sorgente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Stampa in PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modalità schermo intero"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Cerca" aria-label="Cerca" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenuti </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install ipyleaflet
+<span class="o">%</span><span class="k">pip</span> install ipywidgets
+<span class="o">%</span><span class="k">pip</span> install jupyterlab_widgets
+
+<span class="c1"># %jupyter nbextension enable --py widgetsnbextension</span>
+<span class="c1"># %jupyter nbextension enable --py ipyleaflet</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Defaulting to user installation because normal site-packages is not writeable
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ipyleaflet in /home/davide/.local/lib/python3.8/site-packages (0.19.2)
+Requirement already satisfied: branca&gt;=0.5.0 in /home/davide/.local/lib/python3.8/site-packages (from ipyleaflet) (0.8.0)
+Requirement already satisfied: ipywidgets&lt;9,&gt;=7.6.0 in /home/davide/.local/lib/python3.8/site-packages (from ipyleaflet) (7.6.4)
+Requirement already satisfied: jupyter-leaflet&lt;0.20,&gt;=0.19 in /home/davide/.local/lib/python3.8/site-packages (from ipyleaflet) (0.19.2)
+Requirement already satisfied: traittypes&lt;3,&gt;=0.2.1 in /home/davide/.local/lib/python3.8/site-packages (from ipyleaflet) (0.2.1)
+Requirement already satisfied: xyzservices&gt;=2021.8.1 in /home/davide/.local/lib/python3.8/site-packages (from ipyleaflet) (2021.11.0)
+Requirement already satisfied: jinja2&gt;=3 in /home/davide/.local/lib/python3.8/site-packages (from branca&gt;=0.5.0-&gt;ipyleaflet) (3.0.3)
+Requirement already satisfied: ipykernel&gt;=4.5.1 in /home/davide/.local/lib/python3.8/site-packages (from ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (6.29.5)
+Requirement already satisfied: ipython-genutils~=0.2.0 in /usr/lib/python3/dist-packages (from ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.2.0)
+Requirement already satisfied: traitlets&gt;=4.3.1 in /home/davide/.local/lib/python3.8/site-packages (from ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (5.14.3)
+Requirement already satisfied: nbformat&gt;=4.2.0 in /home/davide/.local/lib/python3.8/site-packages (from ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (5.10.4)
+Requirement already satisfied: widgetsnbextension~=3.5.0 in /home/davide/.local/lib/python3.8/site-packages (from ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (3.5.1)
+Requirement already satisfied: ipython&gt;=4.0.0 in /home/davide/.local/lib/python3.8/site-packages (from ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (8.12.3)
+Requirement already satisfied: jupyterlab-widgets&gt;=1.0.0 in /home/davide/.local/lib/python3.8/site-packages (from ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.0.1)
+Requirement already satisfied: comm&gt;=0.1.1 in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.2.2)
+Requirement already satisfied: debugpy&gt;=1.6.5 in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.8.7)
+Requirement already satisfied: jupyter-client&gt;=6.1.12 in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (8.6.2)
+Requirement already satisfied: jupyter-core!=5.0.*,&gt;=4.12 in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (5.7.2)
+Requirement already satisfied: matplotlib-inline&gt;=0.1 in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.1.7)
+Requirement already satisfied: nest-asyncio in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.5.8)
+Requirement already satisfied: packaging in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (24.1)
+Requirement already satisfied: psutil in /usr/lib/python3/dist-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (5.5.1)
+Requirement already satisfied: pyzmq&gt;=24 in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (26.2.0)
+Requirement already satisfied: tornado&gt;=6.1 in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (6.4.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: backcall in /usr/lib/python3/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.1.0)
+Requirement already satisfied: decorator in /usr/lib/python3/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (4.4.2)
+Requirement already satisfied: jedi&gt;=0.16 in /home/davide/.local/lib/python3.8/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.19.1)
+Requirement already satisfied: pickleshare in /usr/lib/python3/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.7.5)
+Requirement already satisfied: prompt-toolkit!=3.0.37,&lt;3.1.0,&gt;=3.0.30 in /home/davide/.local/lib/python3.8/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (3.0.48)
+Requirement already satisfied: pygments&gt;=2.4.0 in /home/davide/.local/lib/python3.8/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.18.0)
+Requirement already satisfied: stack-data in /home/davide/.local/lib/python3.8/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.6.3)
+Requirement already satisfied: typing-extensions in /home/davide/.local/lib/python3.8/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (4.5.0)
+Requirement already satisfied: pexpect&gt;4.3 in /home/davide/.local/lib/python3.8/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (4.8.0)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/davide/.local/lib/python3.8/site-packages (from jinja2&gt;=3-&gt;branca&gt;=0.5.0-&gt;ipyleaflet) (2.0.1)
+Requirement already satisfied: fastjsonschema&gt;=2.15 in /home/davide/.local/lib/python3.8/site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.20.0)
+Requirement already satisfied: jsonschema&gt;=2.6 in /home/davide/.local/lib/python3.8/site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (4.23.0)
+Requirement already satisfied: notebook&gt;=4.4.1 in /home/davide/.local/lib/python3.8/site-packages (from widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (7.2.2)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.3 in /home/davide/.local/lib/python3.8/site-packages (from jedi&gt;=0.16-&gt;ipython&gt;=4.0.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.8.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: attrs&gt;=22.2.0 in /home/davide/.local/lib/python3.8/site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (24.2.0)
+Requirement already satisfied: importlib-resources&gt;=1.4.0 in /home/davide/.local/lib/python3.8/site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (5.4.0)
+Requirement already satisfied: jsonschema-specifications&gt;=2023.03.6 in /home/davide/.local/lib/python3.8/site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2023.12.1)
+Requirement already satisfied: pkgutil-resolve-name&gt;=1.3.10 in /home/davide/.local/lib/python3.8/site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.3.10)
+Requirement already satisfied: referencing&gt;=0.28.4 in /home/davide/.local/lib/python3.8/site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.35.1)
+Requirement already satisfied: rpds-py&gt;=0.7.1 in /home/davide/.local/lib/python3.8/site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.20.0)
+Requirement already satisfied: importlib-metadata&gt;=4.8.3 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (6.8.0)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.9.0.post0)
+Requirement already satisfied: platformdirs&gt;=2.5 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-core!=5.0.*,&gt;=4.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.5.1)
+Requirement already satisfied: jupyter-server&lt;3,&gt;=2.4.0 in /home/davide/.local/lib/python3.8/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.14.2)
+Requirement already satisfied: jupyterlab-server&lt;3,&gt;=2.27.1 in /home/davide/.local/lib/python3.8/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.27.3)
+Requirement already satisfied: jupyterlab&lt;4.3,&gt;=4.2.0 in /home/davide/.local/lib/python3.8/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (4.2.5)
+Requirement already satisfied: notebook-shim&lt;0.3,&gt;=0.2 in /home/davide/.local/lib/python3.8/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.2.4)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /home/davide/.local/lib/python3.8/site-packages (from pexpect&gt;4.3-&gt;ipython&gt;=4.0.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.7.0)
+Requirement already satisfied: wcwidth in /usr/lib/python3/dist-packages (from prompt-toolkit!=3.0.37,&lt;3.1.0,&gt;=3.0.30-&gt;ipython&gt;=4.0.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.1.8)
+Requirement already satisfied: executing&gt;=1.2.0 in /home/davide/.local/lib/python3.8/site-packages (from stack-data-&gt;ipython&gt;=4.0.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.1.0)
+Requirement already satisfied: asttokens&gt;=2.1.0 in /home/davide/.local/lib/python3.8/site-packages (from stack-data-&gt;ipython&gt;=4.0.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.4.1)
+Requirement already satisfied: pure-eval in /home/davide/.local/lib/python3.8/site-packages (from stack-data-&gt;ipython&gt;=4.0.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.2.3)
+Requirement already satisfied: six&gt;=1.12.0 in /home/davide/.local/lib/python3.8/site-packages (from asttokens&gt;=2.1.0-&gt;stack-data-&gt;ipython&gt;=4.0.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.16.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: zipp&gt;=0.5 in /home/davide/.local/lib/python3.8/site-packages (from importlib-metadata&gt;=4.8.3-&gt;jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (3.7.0)
+Requirement already satisfied: anyio&gt;=3.1.0 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (3.4.0)
+Requirement already satisfied: argon2-cffi&gt;=21.1 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (21.1.0)
+Requirement already satisfied: jupyter-events&gt;=0.9.0 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.10.0)
+Requirement already satisfied: jupyter-server-terminals&gt;=0.4.4 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.5.3)
+Requirement already satisfied: nbconvert&gt;=6.4.4 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (7.16.4)
+Requirement already satisfied: overrides&gt;=5.0 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (7.7.0)
+Requirement already satisfied: prometheus-client&gt;=0.9 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.11.0)
+Requirement already satisfied: send2trash&gt;=1.8.2 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.8.3)
+Requirement already satisfied: terminado&gt;=0.8.3 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.11.1)
+Requirement already satisfied: websocket-client&gt;=1.7 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.8.0)
+Requirement already satisfied: async-lru&gt;=1.0.0 in /home/davide/.local/lib/python3.8/site-packages (from jupyterlab&lt;4.3,&gt;=4.2.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.0.4)
+Requirement already satisfied: httpx&gt;=0.25.0 in /home/davide/.local/lib/python3.8/site-packages (from jupyterlab&lt;4.3,&gt;=4.2.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.27.2)
+Requirement already satisfied: jupyter-lsp&gt;=2.0.0 in /home/davide/.local/lib/python3.8/site-packages (from jupyterlab&lt;4.3,&gt;=4.2.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.2.5)
+Requirement already satisfied: setuptools&gt;=40.1.0 in /home/davide/.local/lib/python3.8/site-packages (from jupyterlab&lt;4.3,&gt;=4.2.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (62.1.0)
+Requirement already satisfied: tomli&gt;=1.2.2 in /home/davide/.local/lib/python3.8/site-packages (from jupyterlab&lt;4.3,&gt;=4.2.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.2.2)
+Requirement already satisfied: babel&gt;=2.10 in /home/davide/.local/lib/python3.8/site-packages (from jupyterlab-server&lt;3,&gt;=2.27.1-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.16.0)
+Requirement already satisfied: json5&gt;=0.9.0 in /home/davide/.local/lib/python3.8/site-packages (from jupyterlab-server&lt;3,&gt;=2.27.1-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.9.6)
+Requirement already satisfied: requests&gt;=2.31 in /home/davide/.local/lib/python3.8/site-packages (from jupyterlab-server&lt;3,&gt;=2.27.1-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.32.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: idna&gt;=2.8 in /home/davide/.local/lib/python3.8/site-packages (from anyio&gt;=3.1.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.10)
+Requirement already satisfied: sniffio&gt;=1.1 in /home/davide/.local/lib/python3.8/site-packages (from anyio&gt;=3.1.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.2.0)
+Requirement already satisfied: cffi&gt;=1.0.0 in /home/davide/.local/lib/python3.8/site-packages (from argon2-cffi&gt;=21.1-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.14.3)
+Requirement already satisfied: pytz&gt;=2015.7 in /usr/lib/python3/dist-packages (from babel&gt;=2.10-&gt;jupyterlab-server&lt;3,&gt;=2.27.1-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2019.3)
+Requirement already satisfied: certifi in /home/davide/.local/lib/python3.8/site-packages (from httpx&gt;=0.25.0-&gt;jupyterlab&lt;4.3,&gt;=4.2.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2022.6.15)
+Requirement already satisfied: httpcore==1.* in /home/davide/.local/lib/python3.8/site-packages (from httpx&gt;=0.25.0-&gt;jupyterlab&lt;4.3,&gt;=4.2.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.0.6)
+Requirement already satisfied: h11&lt;0.15,&gt;=0.13 in /home/davide/.local/lib/python3.8/site-packages (from httpcore==1.*-&gt;httpx&gt;=0.25.0-&gt;jupyterlab&lt;4.3,&gt;=4.2.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.13.0)
+Requirement already satisfied: python-json-logger&gt;=2.0.4 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.0.7)
+Requirement already satisfied: pyyaml&gt;=5.3 in /usr/lib/python3/dist-packages (from jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (5.3.1)
+Requirement already satisfied: rfc3339-validator in /home/davide/.local/lib/python3.8/site-packages (from jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.1.4)
+Requirement already satisfied: rfc3986-validator&gt;=0.1.1 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.1.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: beautifulsoup4 in /usr/lib/python3/dist-packages (from nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (4.8.2)
+Requirement already satisfied: bleach!=5.0.0 in /usr/lib/python3/dist-packages (from nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (3.1.1)
+Requirement already satisfied: defusedxml in /usr/lib/python3/dist-packages (from nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.6.0)
+Requirement already satisfied: jupyterlab-pygments in /home/davide/.local/lib/python3.8/site-packages (from nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.3.0)
+Requirement already satisfied: mistune&lt;4,&gt;=2.0.3 in /home/davide/.local/lib/python3.8/site-packages (from nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (3.0.2)
+Requirement already satisfied: nbclient&gt;=0.5.0 in /home/davide/.local/lib/python3.8/site-packages (from nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.7.4)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/lib/python3/dist-packages (from nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.4.2)
+Requirement already satisfied: tinycss2 in /home/davide/.local/lib/python3.8/site-packages (from nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.1.1)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/davide/.local/lib/python3.8/site-packages (from requests&gt;=2.31-&gt;jupyterlab-server&lt;3,&gt;=2.27.1-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.0.7)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/davide/.local/lib/python3.8/site-packages (from requests&gt;=2.31-&gt;jupyterlab-server&lt;3,&gt;=2.27.1-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.26.8)
+Requirement already satisfied: pycparser in /home/davide/.local/lib/python3.8/site-packages (from cffi&gt;=1.0.0-&gt;argon2-cffi&gt;=21.1-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.20)
+Requirement already satisfied: fqdn in /home/davide/.local/lib/python3.8/site-packages (from jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.5.1)
+Requirement already satisfied: isoduration in /home/davide/.local/lib/python3.8/site-packages (from jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (20.11.0)
+Requirement already satisfied: jsonpointer&gt;1.13 in /home/davide/.local/lib/python3.8/site-packages (from jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (3.0.0)
+Requirement already satisfied: uri-template in /home/davide/.local/lib/python3.8/site-packages (from jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.3.0)
+Requirement already satisfied: webcolors&gt;=24.6.0 in /home/davide/.local/lib/python3.8/site-packages (from jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (24.8.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: webencodings&gt;=0.4 in /usr/lib/python3/dist-packages (from tinycss2-&gt;nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (0.5.1)
+Requirement already satisfied: arrow&gt;=0.15.0 in /home/davide/.local/lib/python3.8/site-packages (from isoduration-&gt;jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (1.3.0)
+Requirement already satisfied: types-python-dateutil&gt;=2.8.10 in /home/davide/.local/lib/python3.8/site-packages (from arrow&gt;=0.15.0-&gt;isoduration-&gt;jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;9,&gt;=7.6.0-&gt;ipyleaflet) (2.9.0.20241003)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Error parsing dependencies of arcgis: .* suffix can only be used with `==` or `!=` operators</span>
+<span class=" -Color -Color-Yellow">    keyring (&lt;=21.8.*,&gt;=19)</span>
+<span class=" -Color -Color-Yellow">             ~~~~~~~^</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Error parsing dependencies of quilt3: Expected matching RIGHT_PARENTHESIS for LEFT_PARENTHESIS, after version specifier</span>
+<span class=" -Color -Color-Yellow">    urllib3 (&lt;1.26,&gt;=1.25.4numpy&gt;=1.14.0) ; extra == &#39;tests&#39;</span>
+<span class=" -Color -Color-Yellow">            ~~~~~~~~~~~~~~~^</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Error parsing dependencies of distro-info: Invalid version: &#39;0.23ubuntu1&#39;</span>
+<span class=" -Color -Color-Yellow">WARNING: Error parsing dependencies of python-debian: Invalid version: &#39;0.1.36ubuntu1&#39;</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Defaulting to user installation because normal site-packages is not writeable
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ipywidgets in /home/davide/.local/lib/python3.8/site-packages (7.6.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ipykernel&gt;=4.5.1 in /home/davide/.local/lib/python3.8/site-packages (from ipywidgets) (6.29.5)
+Requirement already satisfied: ipython-genutils~=0.2.0 in /usr/lib/python3/dist-packages (from ipywidgets) (0.2.0)
+Requirement already satisfied: traitlets&gt;=4.3.1 in /home/davide/.local/lib/python3.8/site-packages (from ipywidgets) (5.14.3)
+Requirement already satisfied: nbformat&gt;=4.2.0 in /home/davide/.local/lib/python3.8/site-packages (from ipywidgets) (5.10.4)
+Requirement already satisfied: widgetsnbextension~=3.5.0 in /home/davide/.local/lib/python3.8/site-packages (from ipywidgets) (3.5.1)
+Requirement already satisfied: ipython&gt;=4.0.0 in /home/davide/.local/lib/python3.8/site-packages (from ipywidgets) (8.12.3)
+Requirement already satisfied: jupyterlab-widgets&gt;=1.0.0 in /home/davide/.local/lib/python3.8/site-packages (from ipywidgets) (1.0.1)
+Requirement already satisfied: comm&gt;=0.1.1 in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (0.2.2)
+Requirement already satisfied: debugpy&gt;=1.6.5 in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (1.8.7)
+Requirement already satisfied: jupyter-client&gt;=6.1.12 in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (8.6.2)
+Requirement already satisfied: jupyter-core!=5.0.*,&gt;=4.12 in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (5.7.2)
+Requirement already satisfied: matplotlib-inline&gt;=0.1 in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (0.1.7)
+Requirement already satisfied: nest-asyncio in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (1.5.8)
+Requirement already satisfied: packaging in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (24.1)
+Requirement already satisfied: psutil in /usr/lib/python3/dist-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (5.5.1)
+Requirement already satisfied: pyzmq&gt;=24 in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (26.2.0)
+Requirement already satisfied: tornado&gt;=6.1 in /home/davide/.local/lib/python3.8/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (6.4.1)
+Requirement already satisfied: backcall in /usr/lib/python3/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (0.1.0)
+Requirement already satisfied: decorator in /usr/lib/python3/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (4.4.2)
+Requirement already satisfied: jedi&gt;=0.16 in /home/davide/.local/lib/python3.8/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (0.19.1)
+Requirement already satisfied: pickleshare in /usr/lib/python3/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (0.7.5)
+Requirement already satisfied: prompt-toolkit!=3.0.37,&lt;3.1.0,&gt;=3.0.30 in /home/davide/.local/lib/python3.8/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (3.0.48)
+Requirement already satisfied: pygments&gt;=2.4.0 in /home/davide/.local/lib/python3.8/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (2.18.0)
+Requirement already satisfied: stack-data in /home/davide/.local/lib/python3.8/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (0.6.3)
+Requirement already satisfied: typing-extensions in /home/davide/.local/lib/python3.8/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (4.5.0)
+Requirement already satisfied: pexpect&gt;4.3 in /home/davide/.local/lib/python3.8/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (4.8.0)
+Requirement already satisfied: fastjsonschema&gt;=2.15 in /home/davide/.local/lib/python3.8/site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets) (2.20.0)
+Requirement already satisfied: jsonschema&gt;=2.6 in /home/davide/.local/lib/python3.8/site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets) (4.23.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: notebook&gt;=4.4.1 in /home/davide/.local/lib/python3.8/site-packages (from widgetsnbextension~=3.5.0-&gt;ipywidgets) (7.2.2)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.3 in /home/davide/.local/lib/python3.8/site-packages (from jedi&gt;=0.16-&gt;ipython&gt;=4.0.0-&gt;ipywidgets) (0.8.4)
+Requirement already satisfied: attrs&gt;=22.2.0 in /home/davide/.local/lib/python3.8/site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets) (24.2.0)
+Requirement already satisfied: importlib-resources&gt;=1.4.0 in /home/davide/.local/lib/python3.8/site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets) (5.4.0)
+Requirement already satisfied: jsonschema-specifications&gt;=2023.03.6 in /home/davide/.local/lib/python3.8/site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets) (2023.12.1)
+Requirement already satisfied: pkgutil-resolve-name&gt;=1.3.10 in /home/davide/.local/lib/python3.8/site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets) (1.3.10)
+Requirement already satisfied: referencing&gt;=0.28.4 in /home/davide/.local/lib/python3.8/site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets) (0.35.1)
+Requirement already satisfied: rpds-py&gt;=0.7.1 in /home/davide/.local/lib/python3.8/site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets) (0.20.0)
+Requirement already satisfied: importlib-metadata&gt;=4.8.3 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (6.8.0)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (2.9.0.post0)
+Requirement already satisfied: platformdirs&gt;=2.5 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-core!=5.0.*,&gt;=4.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (2.5.1)
+Requirement already satisfied: jupyter-server&lt;3,&gt;=2.4.0 in /home/davide/.local/lib/python3.8/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.14.2)
+Requirement already satisfied: jupyterlab-server&lt;3,&gt;=2.27.1 in /home/davide/.local/lib/python3.8/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.27.3)
+Requirement already satisfied: jupyterlab&lt;4.3,&gt;=4.2.0 in /home/davide/.local/lib/python3.8/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (4.2.5)
+Requirement already satisfied: notebook-shim&lt;0.3,&gt;=0.2 in /home/davide/.local/lib/python3.8/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.2.4)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /home/davide/.local/lib/python3.8/site-packages (from pexpect&gt;4.3-&gt;ipython&gt;=4.0.0-&gt;ipywidgets) (0.7.0)
+Requirement already satisfied: wcwidth in /usr/lib/python3/dist-packages (from prompt-toolkit!=3.0.37,&lt;3.1.0,&gt;=3.0.30-&gt;ipython&gt;=4.0.0-&gt;ipywidgets) (0.1.8)
+Requirement already satisfied: executing&gt;=1.2.0 in /home/davide/.local/lib/python3.8/site-packages (from stack-data-&gt;ipython&gt;=4.0.0-&gt;ipywidgets) (2.1.0)
+Requirement already satisfied: asttokens&gt;=2.1.0 in /home/davide/.local/lib/python3.8/site-packages (from stack-data-&gt;ipython&gt;=4.0.0-&gt;ipywidgets) (2.4.1)
+Requirement already satisfied: pure-eval in /home/davide/.local/lib/python3.8/site-packages (from stack-data-&gt;ipython&gt;=4.0.0-&gt;ipywidgets) (0.2.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.12.0 in /home/davide/.local/lib/python3.8/site-packages (from asttokens&gt;=2.1.0-&gt;stack-data-&gt;ipython&gt;=4.0.0-&gt;ipywidgets) (1.16.0)
+Requirement already satisfied: zipp&gt;=0.5 in /home/davide/.local/lib/python3.8/site-packages (from importlib-metadata&gt;=4.8.3-&gt;jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (3.7.0)
+Requirement already satisfied: anyio&gt;=3.1.0 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (3.4.0)
+Requirement already satisfied: argon2-cffi&gt;=21.1 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (21.1.0)
+Requirement already satisfied: jinja2&gt;=3.0.3 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (3.0.3)
+Requirement already satisfied: jupyter-events&gt;=0.9.0 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.10.0)
+Requirement already satisfied: jupyter-server-terminals&gt;=0.4.4 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.5.3)
+Requirement already satisfied: nbconvert&gt;=6.4.4 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (7.16.4)
+Requirement already satisfied: overrides&gt;=5.0 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (7.7.0)
+Requirement already satisfied: prometheus-client&gt;=0.9 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.11.0)
+Requirement already satisfied: send2trash&gt;=1.8.2 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.8.3)
+Requirement already satisfied: terminado&gt;=0.8.3 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.11.1)
+Requirement already satisfied: websocket-client&gt;=1.7 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.8.0)
+Requirement already satisfied: async-lru&gt;=1.0.0 in /home/davide/.local/lib/python3.8/site-packages (from jupyterlab&lt;4.3,&gt;=4.2.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.0.4)
+Requirement already satisfied: httpx&gt;=0.25.0 in /home/davide/.local/lib/python3.8/site-packages (from jupyterlab&lt;4.3,&gt;=4.2.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.27.2)
+Requirement already satisfied: jupyter-lsp&gt;=2.0.0 in /home/davide/.local/lib/python3.8/site-packages (from jupyterlab&lt;4.3,&gt;=4.2.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.2.5)
+Requirement already satisfied: setuptools&gt;=40.1.0 in /home/davide/.local/lib/python3.8/site-packages (from jupyterlab&lt;4.3,&gt;=4.2.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (62.1.0)
+Requirement already satisfied: tomli&gt;=1.2.2 in /home/davide/.local/lib/python3.8/site-packages (from jupyterlab&lt;4.3,&gt;=4.2.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.2.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: babel&gt;=2.10 in /home/davide/.local/lib/python3.8/site-packages (from jupyterlab-server&lt;3,&gt;=2.27.1-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.16.0)
+Requirement already satisfied: json5&gt;=0.9.0 in /home/davide/.local/lib/python3.8/site-packages (from jupyterlab-server&lt;3,&gt;=2.27.1-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.9.6)
+Requirement already satisfied: requests&gt;=2.31 in /home/davide/.local/lib/python3.8/site-packages (from jupyterlab-server&lt;3,&gt;=2.27.1-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.32.3)
+Requirement already satisfied: idna&gt;=2.8 in /home/davide/.local/lib/python3.8/site-packages (from anyio&gt;=3.1.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.10)
+Requirement already satisfied: sniffio&gt;=1.1 in /home/davide/.local/lib/python3.8/site-packages (from anyio&gt;=3.1.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.2.0)
+Requirement already satisfied: cffi&gt;=1.0.0 in /home/davide/.local/lib/python3.8/site-packages (from argon2-cffi&gt;=21.1-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.14.3)
+Requirement already satisfied: pytz&gt;=2015.7 in /usr/lib/python3/dist-packages (from babel&gt;=2.10-&gt;jupyterlab-server&lt;3,&gt;=2.27.1-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2019.3)
+Requirement already satisfied: certifi in /home/davide/.local/lib/python3.8/site-packages (from httpx&gt;=0.25.0-&gt;jupyterlab&lt;4.3,&gt;=4.2.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2022.6.15)
+Requirement already satisfied: httpcore==1.* in /home/davide/.local/lib/python3.8/site-packages (from httpx&gt;=0.25.0-&gt;jupyterlab&lt;4.3,&gt;=4.2.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.0.6)
+Requirement already satisfied: h11&lt;0.15,&gt;=0.13 in /home/davide/.local/lib/python3.8/site-packages (from httpcore==1.*-&gt;httpx&gt;=0.25.0-&gt;jupyterlab&lt;4.3,&gt;=4.2.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.13.0)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/davide/.local/lib/python3.8/site-packages (from jinja2&gt;=3.0.3-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.0.1)
+Requirement already satisfied: python-json-logger&gt;=2.0.4 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.0.7)
+Requirement already satisfied: pyyaml&gt;=5.3 in /usr/lib/python3/dist-packages (from jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (5.3.1)
+Requirement already satisfied: rfc3339-validator in /home/davide/.local/lib/python3.8/site-packages (from jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.1.4)
+Requirement already satisfied: rfc3986-validator&gt;=0.1.1 in /home/davide/.local/lib/python3.8/site-packages (from jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.1.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: beautifulsoup4 in /usr/lib/python3/dist-packages (from nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (4.8.2)
+Requirement already satisfied: bleach!=5.0.0 in /usr/lib/python3/dist-packages (from nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (3.1.1)
+Requirement already satisfied: defusedxml in /usr/lib/python3/dist-packages (from nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.6.0)
+Requirement already satisfied: jupyterlab-pygments in /home/davide/.local/lib/python3.8/site-packages (from nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.3.0)
+Requirement already satisfied: mistune&lt;4,&gt;=2.0.3 in /home/davide/.local/lib/python3.8/site-packages (from nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (3.0.2)
+Requirement already satisfied: nbclient&gt;=0.5.0 in /home/davide/.local/lib/python3.8/site-packages (from nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.7.4)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/lib/python3/dist-packages (from nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.4.2)
+Requirement already satisfied: tinycss2 in /home/davide/.local/lib/python3.8/site-packages (from nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.1.1)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/davide/.local/lib/python3.8/site-packages (from requests&gt;=2.31-&gt;jupyterlab-server&lt;3,&gt;=2.27.1-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.0.7)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/davide/.local/lib/python3.8/site-packages (from requests&gt;=2.31-&gt;jupyterlab-server&lt;3,&gt;=2.27.1-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.26.8)
+Requirement already satisfied: pycparser in /home/davide/.local/lib/python3.8/site-packages (from cffi&gt;=1.0.0-&gt;argon2-cffi&gt;=21.1-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.20)
+Requirement already satisfied: fqdn in /home/davide/.local/lib/python3.8/site-packages (from jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.5.1)
+Requirement already satisfied: isoduration in /home/davide/.local/lib/python3.8/site-packages (from jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (20.11.0)
+Requirement already satisfied: jsonpointer&gt;1.13 in /home/davide/.local/lib/python3.8/site-packages (from jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (3.0.0)
+Requirement already satisfied: uri-template in /home/davide/.local/lib/python3.8/site-packages (from jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.3.0)
+Requirement already satisfied: webcolors&gt;=24.6.0 in /home/davide/.local/lib/python3.8/site-packages (from jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (24.8.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: webencodings&gt;=0.4 in /usr/lib/python3/dist-packages (from tinycss2-&gt;nbconvert&gt;=6.4.4-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.5.1)
+Requirement already satisfied: arrow&gt;=0.15.0 in /home/davide/.local/lib/python3.8/site-packages (from isoduration-&gt;jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.3.0)
+Requirement already satisfied: types-python-dateutil&gt;=2.8.10 in /home/davide/.local/lib/python3.8/site-packages (from arrow&gt;=0.15.0-&gt;isoduration-&gt;jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&lt;3,&gt;=2.4.0-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.9.0.20241003)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Error parsing dependencies of arcgis: .* suffix can only be used with `==` or `!=` operators</span>
+<span class=" -Color -Color-Yellow">    keyring (&lt;=21.8.*,&gt;=19)</span>
+<span class=" -Color -Color-Yellow">             ~~~~~~~^</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Error parsing dependencies of quilt3: Expected matching RIGHT_PARENTHESIS for LEFT_PARENTHESIS, after version specifier</span>
+<span class=" -Color -Color-Yellow">    urllib3 (&lt;1.26,&gt;=1.25.4numpy&gt;=1.14.0) ; extra == &#39;tests&#39;</span>
+<span class=" -Color -Color-Yellow">            ~~~~~~~~~~~~~~~^</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Error parsing dependencies of distro-info: Invalid version: &#39;0.23ubuntu1&#39;</span>
+<span class=" -Color -Color-Yellow">WARNING: Error parsing dependencies of python-debian: Invalid version: &#39;0.1.36ubuntu1&#39;</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Defaulting to user installation because normal site-packages is not writeable
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jupyterlab_widgets in /home/davide/.local/lib/python3.8/site-packages (1.0.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Error parsing dependencies of arcgis: .* suffix can only be used with `==` or `!=` operators</span>
+<span class=" -Color -Color-Yellow">    keyring (&lt;=21.8.*,&gt;=19)</span>
+<span class=" -Color -Color-Yellow">             ~~~~~~~^</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Error parsing dependencies of quilt3: Expected matching RIGHT_PARENTHESIS for LEFT_PARENTHESIS, after version specifier</span>
+<span class=" -Color -Color-Yellow">    urllib3 (&lt;1.26,&gt;=1.25.4numpy&gt;=1.14.0) ; extra == &#39;tests&#39;</span>
+<span class=" -Color -Color-Yellow">            ~~~~~~~~~~~~~~~^</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Error parsing dependencies of distro-info: Invalid version: &#39;0.23ubuntu1&#39;</span>
+<span class=" -Color -Color-Yellow">WARNING: Error parsing dependencies of python-debian: Invalid version: &#39;0.1.36ubuntu1&#39;</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="n">Map</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mf">45.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">center</span><span class="p">)</span>
+
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[45.0, 10.0]
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "7631dca7a0534522802018f5a2eeaf9a"}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Map</span><span class="p">,</span> <span class="n">GeoJSON</span><span class="p">,</span> <span class="n">LayerGroup</span><span class="p">,</span> <span class="n">WidgetControl</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">IntSlider</span><span class="p">,</span> <span class="n">VBox</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+
+<span class="c1"># Load GeoJSON data (replace with real historical boundary data)</span>
+<span class="c1"># Here we use dummy data, you need to replace these with actual files for Italy and France boundaries over time</span>
+<span class="k">def</span> <span class="nf">load_geojson</span><span class="p">(</span><span class="n">country</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+    <span class="c1"># This function simulates loading GeoJSON files</span>
+    <span class="c1"># Replace it with paths to actual files or GeoJSON objects</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;FeatureCollection&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;features&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Polygon&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">[</span>
+                            <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">47.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">7.0</span><span class="p">,</span> <span class="mf">47.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">7.0</span><span class="p">,</span> <span class="mf">42.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">42.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">47.0</span><span class="p">]</span>
+                        <span class="p">]</span> <span class="k">if</span> <span class="n">country</span> <span class="o">==</span> <span class="s2">&quot;France&quot;</span> <span class="k">else</span>
+                        <span class="p">[[</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">46.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">14.0</span><span class="p">,</span> <span class="mf">46.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">14.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">46.0</span><span class="p">]]</span>
+                    <span class="p">],</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="n">country</span><span class="p">,</span>
+                    <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="n">year</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+
+<span class="c1"># Map Initialization</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Slider for Year</span>
+<span class="n">year_slider</span> <span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">1800</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">1800</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1950</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Year:&#39;</span><span class="p">)</span>
+
+<span class="c1"># Layer Groups for Countries</span>
+<span class="n">italy_layer_group</span> <span class="o">=</span> <span class="n">LayerGroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Italy&quot;</span><span class="p">)</span>
+<span class="n">france_layer_group</span> <span class="o">=</span> <span class="n">LayerGroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;France&quot;</span><span class="p">)</span>
+
+<span class="c1"># Function to Update Layers Based on Year</span>
+<span class="k">def</span> <span class="nf">update_layers</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="n">year</span> <span class="o">=</span> <span class="n">change</span><span class="p">[</span><span class="s1">&#39;new&#39;</span><span class="p">]</span>
+    <span class="n">italy_layer_group</span><span class="o">.</span><span class="n">clear_layers</span><span class="p">()</span>
+    <span class="n">france_layer_group</span><span class="o">.</span><span class="n">clear_layers</span><span class="p">()</span>
+
+    <span class="n">italy_data</span> <span class="o">=</span> <span class="n">load_geojson</span><span class="p">(</span><span class="s2">&quot;Italy&quot;</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+    <span class="n">france_data</span> <span class="o">=</span> <span class="n">load_geojson</span><span class="p">(</span><span class="s2">&quot;France&quot;</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+
+    <span class="n">italy_geojson</span> <span class="o">=</span> <span class="n">GeoJSON</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">italy_data</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;opacity&#39;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">})</span>
+    <span class="n">france_geojson</span> <span class="o">=</span> <span class="n">GeoJSON</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">france_data</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;opacity&#39;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">})</span>
+
+    <span class="n">italy_layer_group</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">italy_geojson</span><span class="p">)</span>
+    <span class="n">france_layer_group</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">france_geojson</span><span class="p">)</span>
+
+<span class="c1"># Initial Layer Update</span>
+<span class="n">update_layers</span><span class="p">({</span><span class="s1">&#39;new&#39;</span><span class="p">:</span> <span class="n">year_slider</span><span class="o">.</span><span class="n">value</span><span class="p">})</span>
+
+<span class="c1"># Attach Slider Event</span>
+<span class="n">year_slider</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">update_layers</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add Layers to the Map</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">italy_layer_group</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">france_layer_group</span><span class="p">)</span>
+
+<span class="c1"># Add Controls to the Map</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="n">WidgetControl</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">year_slider</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;topright&#39;</span><span class="p">))</span>
+
+<span class="c1"># Display Map</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "13742f5db5e340bbba0bcb81c2f985a7"}</script></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="animations.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">precedente</p>
+        <p class="prev-next-title">Animazioni in un Jupyter book</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenuti
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Di basics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
